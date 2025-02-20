@@ -6,18 +6,24 @@ class Post extends StatelessWidget {
       {Key? key,
       required this.username,
       required this.postImage,
+      required this.bio,
+      required this.profileImage,
       this.sound = ""})
       : super(key: key);
 
   final String username;
   final String postImage;
   final String sound;
+  final String bio;
+  final String profileImage;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 40),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             child: Stack(
@@ -28,7 +34,7 @@ class Post extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.blue,
                   ),
-                  child: Image.network(
+                  child: Image.asset(
                     postImage,
                     fit: BoxFit.cover,
                   ),
@@ -39,7 +45,10 @@ class Post extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [Color.fromARGB(111, 31, 30, 30), Color.fromARGB(0, 255, 255, 255)],
+                      colors: [
+                        Color.fromARGB(158, 27, 27, 27),
+                        Color.fromARGB(0, 0, 0, 0)
+                      ],
                     ),
                   ),
                   child: Positioned(
@@ -54,7 +63,7 @@ class Post extends StatelessWidget {
                             spacing: 10,
                             children: [
                               CustomProfileImg(
-                                profileImage: "assets/images/1.webp",
+                                profileImage: profileImage,
                                 width: 40,
                                 height: 40,
                                 hasStore: true,
@@ -105,7 +114,35 @@ class Post extends StatelessWidget {
               ),
               IconButton(onPressed: () {}, icon: Icon(Icons.save_alt_rounded))
             ],
-          )
+          ),
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: 12),
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "$username ",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(
+                    text: bio,
+                  )
+                ],
+              ),
+              softWrap: true,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          Container(
+              padding: EdgeInsets.symmetric(horizontal: 12),
+              child: Text(
+                "10h ago . ",
+                style: TextStyle(color: Colors.grey, fontSize: 12),
+              ))
         ],
       ),
     );

@@ -1,30 +1,53 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  final String text;
-  final VoidCallback onPressed;
+  const CustomButton(
+      {Key? key,
+      required this.child,
+      required this.onPressed,
+      this.outline = false,
+      this.borderColor = Colors.white,
+      this.borderWidth = 1,
+      this.borderRadios = 5,
+      this.horizotalPadding = 100,
+      this.verticalPadding = 12
+      })
+      : super(key: key);
 
-  const CustomButton({
-    Key? key,
-    required this.text,
-    required this.onPressed,
-  }) : super(key: key);
+  final Widget child;
+  final VoidCallback onPressed;
+  final bool outline;
+  final double borderWidth;
+  final Color borderColor;
+  final double borderRadios;
+  final double horizotalPadding;
+  final double verticalPadding;
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.green[900],
-        padding: EdgeInsets.symmetric(horizontal: 92, vertical: 12),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(100),
-        ),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(fontSize: 16, color: Colors.white),
-      ),
-    );
+    return outline
+        ? OutlinedButton(
+            onPressed: onPressed,
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.symmetric(
+                  horizontal: horizotalPadding, vertical: verticalPadding),
+              side: BorderSide(color: borderColor, width: borderWidth),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(borderRadios),
+              ),
+            ),
+            child: child
+          )
+        : ElevatedButton(
+            onPressed: onPressed,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue[600],
+              padding: EdgeInsets.symmetric(horizontal: horizotalPadding, vertical: verticalPadding),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(borderRadios),
+              ),
+            ),
+            child: child
+          );
   }
 }

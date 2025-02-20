@@ -14,6 +14,8 @@ analyzer:
     use_super_parameters: ignore
     avoid_unnecessary_containers: ignore
     unnecessary_const: ignore
+    deprecated_member_use: ignore
+    sort_child_properties_last: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:

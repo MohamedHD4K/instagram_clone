@@ -12,13 +12,13 @@ class StoresSlider extends StatelessWidget {
         
         spacing: 10,
         children: <Widget>[
-          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/1.webp" , label: "name", hasStore: true,),
-          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/3.webp" , label: "ndwada", hasStore: true,),
-          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/4.jpg" , label: "ndwada", hasStore: true,),
-          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/5.jpg" , label: "dasas", hasStore: true,),
-          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/6.png" , label: "dadaw", hasStore: true,),
-          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/7.png" , label: "dawdadw",),
-          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/2.webp" , label: "dwada",),
+          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/boy1.png" , label: "name", hasStore: true,),
+          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/boy3.png" , label: "ndwada", hasStore: true,),
+          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/girl1.png" , label: "ndwada", hasStore: true,),
+          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/avatar.png" , label: "dasas", hasStore: true,),
+          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/girl2.png" , label: "dadaw", hasStore: true,),
+          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/girl3.png" , label: "dawdadw",),
+          CustomProfileImg( width: 80, height: 80, profileImage: "assets/images/boy2.png" , label: "dwada",),
         ],
       ),
     );

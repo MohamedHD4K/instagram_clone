@@ -15,16 +15,15 @@ class CustomInput extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 1, horizontal: 8),
       width: 250,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100),
-        color: Colors.green,
-      ),
+          color: Colors.grey[800],
+          border: Border.all(width: 1, color: Colors.grey),
+          borderRadius: BorderRadius.circular(5)),
       child: TextField(
         keyboardType: isPassword ? null : TextInputType.emailAddress,
         obscureText: isPassword,
         decoration: InputDecoration(
-          hintText: label,
-          hintStyle: TextStyle(color: Colors.green[100]),
           border: InputBorder.none,
+          hintText: label,
           prefixIcon: icon,
           suffixIcon: isPassword
               ? IconButton(

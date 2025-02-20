@@ -3,24 +3,25 @@ import '../widgets/custom_input.dart';
 import '../widgets/custom_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class Signup extends StatelessWidget {
+  const Signup({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
           title: Center(
-            child: Text(
-              "Login",
-              style: TextStyle(fontSize: 30),
-            ),
-          ),
+        child: Text(
+          "Sinup",
+          style: TextStyle(fontSize: 30),
         ),
-        body: Column(
+      )),
+      body: Container(
+        width: double.infinity,
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          spacing: 40,
+          spacing: 20,
           children: [
             SvgPicture.asset(
               "assets/images/Instagram_logo.SVG",
@@ -28,8 +29,6 @@ class Login extends StatelessWidget {
               width: 230,
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Column(
                   spacing: 10,
@@ -39,26 +38,49 @@ class Login extends StatelessWidget {
                       icon: Icon(Icons.person),
                     ),
                     CustomInput(
+                      label: "Email",
+                      icon: Icon(Icons.email),
+                    ),
+                    CustomInput(
                       label: "Password",
                       isPassword: true,
                       icon: Icon(Icons.lock),
                     ),
                     CustomButton(
-                      child:Text("Log In" , style: TextStyle(color: Colors.white),),
+                      child: Text("Sing up" , style: TextStyle(color: Colors.white),),
                       onPressed: () {
-                        Navigator.pushNamed(context, "/singup");
+                        Navigator.pushNamed(context, "/");
                       },
                     ),
                   ],
                 ),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/login");
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Already have an account? " , style: TextStyle(
+                              fontWeight: FontWeight.w300, color: Colors.white)) ,
+                        Text(
+                          " Log in",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500, color: Colors.lightBlue),
+                        ),
+                      ],
+                    )),
                 Container(
                   width: double.infinity,
-                  padding: EdgeInsets.symmetric(horizontal: 70, vertical: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 70 , vertical: 20),
                   child: Row(spacing: 10, children: [
                     Expanded(
                       child: Divider(
                         color: Colors.grey,
                         thickness: 1,
+                        height: 15,
                       ),
                     ),
                     Text("or"),
@@ -66,6 +88,7 @@ class Login extends StatelessWidget {
                       child: Divider(
                         color: Colors.grey,
                         thickness: 1,
+                        height: 9,
                       ),
                     ),
                   ]),
@@ -125,8 +148,10 @@ class Login extends StatelessWidget {
                           fontWeight: FontWeight.w500, color: Colors.white),
                     ))
               ],
-            ),
+            )
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
